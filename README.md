@@ -24,7 +24,7 @@ The Analysis Pipeline
 The workflow uses a series of Python scripts to process the camera trap images in sequential steps.
 
 <p align="center">
-  <img src="images/Camera Trap Detection.pdf" width="300" height="600">
+  <img src="images/CameraTrapDetection.pdf" width="300" height="600">
 </p>
 
 
