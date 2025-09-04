@@ -65,11 +65,14 @@ Output: photos_all_000001.json
 Step 2: Find Suspicious Duplicate Detections
 
 This script identifies recurring detections that are candidates for removal.
+**This script is found from the MegaDetector Repo and must be downloaded.**
 
+```
 python /path/to/MegaDetector/megadetector/postprocessing/repeat_detection_elimination/find_repeat_detections.py \
     "/path/to/photos_all_000001.json" \
     --imageBase "/path/to/WBA_Camera_Trap_Photos/photos_all/" \
     --outputBase "/path/to/susp_dupes_removal_photos_all"
+```
 
 Output: A timestamped filtering_... folder containing images of suspicious detections.
 
@@ -81,10 +84,14 @@ Step 4: Remove Confirmed Duplicates
 
 This script removes the detections corresponding to the false positive images you left in the filtering folder.
 
+**This script is found from the MegaDetector Repo and must be downloaded.**
+
+```
 python /path/to/MegaDetector/megadetector/postprocessing/repeat_detection_elimination/remove_repeat_detections.py \
     "/path/to/photos_all_000001.json" \
     "/path/to/dupes_removed_photos_all.json" \
     "/path/to/susp_dupes_removal_photos_all/filtering_2025.09.04.07.38.19/"
+```
 
 Input: The original JSON and the curated filtering folder.
 
@@ -94,10 +101,12 @@ Step 5: Detect Horizons
 
 This script runs in parallel to the other steps. It analyzes all original images to find the horizon line.
 
+```
 python horizon_detection/detect_horizons_json.py \
     --dirpath_input_images /path/to/WBA_Camera_Trap_Photos/photos_all/ \
     --dirpath_output_images /path/to/horizon_out_photos_all/ \
     --fpath_output_coords /path/to/horizon_out_photos_all.json
+```
 
 Output: horizon_out_photos_all.json
 
@@ -105,6 +114,7 @@ Step 6: Final Filtering and Sorting
 
 This is the final step. It uses the cleaned JSON from Step 4 and the horizon data from Step 5 to apply variable thresholds and sort the final images.
 
+```
 python final_md_process_sort_v3.py \
     --results_json /path/to/dupes_removed_photos_all.json \
     --image_dir /path/to/WBA_Camera_Trap_Photos/photos_all/ \
@@ -113,6 +123,7 @@ python final_md_process_sort_v3.py \
     --sky_threshold 0.0001 \
     --ground_threshold 0.0015 \
     --night_threshold 0.0000015
+```
 
 Output: A final output directory containing sorted folders of visualized and original images (animal_original, empty_original, etc.).
 
