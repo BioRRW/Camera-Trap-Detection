@@ -14,9 +14,9 @@ import os
 
 # --- Configuration ---
 # It's good practice to keep these as defaults that can be overridden.
-MODEL_FILE = "./megadetector_models/md_v5a.0.0.pt"
-IMAGE_FOLDER = "/Users/reed.woyda/Documents/NWDP/image_processing/WBA_Camera_Trap_Photos/photos_all/"
-OUTPUT_FILE = "/Users/reed.woyda/Documents/NWDP/image_processing/horizon_detection/photos_all_000001.json"
+MODEL_FILE = "./path/to/megadetector/model/megadetector_models/md_v5a.0.0.pt"
+IMAGE_FOLDER = "/path/to/photos/"
+OUTPUT_FILE = "/desired/path/to/output/json/photos_all_000001.json"
 NUM_CORES = "8"
 THRESHOLD = "0.000001"
 
